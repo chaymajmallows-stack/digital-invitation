@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Music</title>
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .music-player {
+      padding: 15px;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #f2c6d2;
+      color: #333;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #player {
+      width: 1px;
+      height: 1px;
+      position: absolute;
+      left: -9999px;
+    }
+  </style>
+</head>
+<body>
+  <div class="music-player">
+    <button onclick="playMusic()">▶ Play Music</button>
+    <button onclick="pauseMusic()">❚❚ Pause</button>
+  </div>
+
+  <div id="player"></div>
+
+  <script>
+    let player;
+
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: 'uyupd2PXbSQ',
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          loop: 1,
+          playlist: 'uyupd2PXbSQ'
+        }
+      });
+    }
+
+    function playMusic() {
+      if (player) player.playVideo();
+    }
+
+    function pauseMusic() {
+      if (player) player.pauseVideo();
+    }
+  </script>
+</body>
+</html>
