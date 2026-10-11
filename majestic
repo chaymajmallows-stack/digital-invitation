@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Invitation</title>
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  text-align: center;
+  background: #fff0f5;
+  color: #70465a;
+}
+header {
+  padding: 28px 12px 12px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+}
+button {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 20px;
+  background: #d98eae;
+  color: white;
+  font-size: 14px;
+}
+section {
+  display: none;
+  padding: 35px 18px;
+  min-height: 240px;
+}
+section.active {
+  display: block;
+}
+.music {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  z-index: 5;
+  background: white;
+  padding: 8px;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px #0002;
+}
+.music iframe {
+  width: 220px;
+  height: 124px;
+  border: 0;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>You're Invited!</h1>
+  <p>A special day, a beautiful memory ♡</p>
+</header>
+
+<nav>
+  <button onclick="showPage('home')">Welcome</button>
+  <button onclick="showPage('details')">Details</button>
+  <button onclick="showPage('program')">Program</button>
+  <button onclick="showPage('rsvp')">RSVP</button>
+</nav>
+
+<section id="home" class="active">
+  <h2>Welcome to Our Celebration</h2>
+  <p>We can't wait to celebrate with you!</p>
+</section>
+
+<section id="details">
+  <h2>When & Where</h2>
+  <p>Date: Add your event date</p>
+  <p>Time: Add your event time</p>
+  <p>Venue: Add your event venue</p>
+</section>
+
+<section id="program">
+  <h2>Order of Events</h2>
+  <p>Add your event program here.</p>
+</section>
+
+<section id="rsvp">
+  <h2>We Hope to See You!</h2>
+  <p>Please confirm your attendance.</p>
+</section>
+
+<div class="music">
+  <iframe
+    src="https://www.youtube.com/embed/uyupd2PXbSQ?playsinline=1"
+    title="Background music"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll("section").forEach(function(page) {
+    page.classList.remove("active");
+  });
+  document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
